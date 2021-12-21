@@ -5,7 +5,6 @@ from math import sqrt, floor, ceil
 from collections import Counter
 from itertools import groupby, product
 
-f = open("day17.txt", "r")
 
 print("v_x could be (triangular):")
 for n in range(30):
