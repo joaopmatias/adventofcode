@@ -13,7 +13,7 @@ f = StringIO(
 2-6,4-8
 """.strip()
 )
-f = open("day4.txt")
+f = open("day04.txt")
 
 cleaning = (
     pd.read_csv(

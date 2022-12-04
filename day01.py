@@ -21,7 +21,7 @@ f = StringIO(
 10000
 """
 )
-f = open("day1.txt")
+f = open("day01.txt")
 elfs = (
     pd.Series(f)
     .rename("calories")

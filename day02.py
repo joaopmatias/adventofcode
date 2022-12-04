@@ -21,7 +21,7 @@ B X
 C Z
 """
 )
-f = open("day2.txt")
+f = open("day02.txt")
 
 tournament = (
     pd.read_csv(f, sep=" ", header=None)

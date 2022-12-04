@@ -13,7 +13,7 @@ ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw
 """.strip()
 )
-f = open("day3.txt")
+f = open("day03.txt")
 total = 0
 for l in f:
     ll = l.strip()
@@ -34,7 +34,7 @@ ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw
 """.strip()
 )
-f = open("day3.txt")
+f = open("day03.txt")
 total = 0
 lines = f.readlines()
 for a, b, c in zip(lines[0::3], lines[1::3], lines[2::3]):
