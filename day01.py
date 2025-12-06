@@ -5,60 +5,41 @@ import numpy as np
 
 f = StringIO(
 """
-
-1abc2
-pqr3stu8vwx
-a1b2c3d4e5f
-treb7uchet
-
+L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82
 """.strip("\n")
 )
 f = open("  day01.txt  ".strip())
 
-ans = 0
-for l in f:
-    numbers = [c for c in l if c.isdigit()]
-    ans += int(f"{numbers[0]}{numbers[-1]}")
+acc = [50]
+for line in f.readlines():
+    nr = int(line[1:])
+    if line.startswith("L"):
+        nr *= -1
+    acc.append(acc[-1] + nr)
+
+ans1 = [a % 100 for a in acc].count(0)
 
 print(f"""
-The sum of all calibration values is {ans}
+The solution is {ans1}
 """.strip())
 
-print()
-
-f = StringIO(
-"""
-
-two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen
-
-""".strip("\n")
-)
-f = open("  day01.txt  ".strip())
-
-ans = 0
-for l in f:
-    ll = (
-        l
-        .replace("one", "one 1 one")
-        .replace("two", "two 2 two")
-        .replace("three", "three 3 three")
-        .replace("four", "four 4 four")
-        .replace("five", "five 5 five")
-        .replace("six", "six 6 six")
-        .replace("seven", "seven 7 seven")
-        .replace("eight", "eight 8 eight")
-        .replace("nine", "nine 9 nine")
-        .replace(" ", "")
-    )
-    numbers = [c for c in ll if c.isdigit()]
-    ans += int(f"{numbers[0]}{numbers[-1]}")
+ans2 = 0
+for start, end in zip(acc[:-1], acc[1:]):
+    if start <= end or start % 100 == 0:
+        start_round = start - start % 100
+    else:
+        start_round = start + (100 - start % 100)
+    ans2 += abs(end - start_round) // 100
 
 print(f"""
-The sum of all calibration values in part 2 is {ans}
+The solution is {ans2}
 """.strip())
